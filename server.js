@@ -21,7 +21,7 @@ app.get('/send-email', (req, res) => {
     const query = req.query;
     const msg = {
         to: req.query.destinatario_correo,
-        from: req.query.verified_email, // Use the email address or domain you verified above
+        from: process.env.VERIFIED_EMAIL, // Use the email address or domain you verified above
         subject: `${req.query.asunto} from ${req.query.correo}`,
         text: `nombre: ${req.query.nombre}, correo: ${req.query.correo}, asunto: ${req.query.asunto}, mensaje: ${req.query.mensaje}`,
         html: `
